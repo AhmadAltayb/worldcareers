@@ -398,18 +398,84 @@
             position: relative;
             border: 2px solid var(--primary);
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            position: relative;
+  padding: 2rem;
         }
 
         .close-btn {
             position: absolute;
-            top: 1.2rem;
-            left: 1.5rem;
-            cursor: pointer;
-            font-size: 2rem;
-            color: var(--primary);
-            transition: transform 0.3s ease;
-        }
+           
+         
+          
+         
+           
+            
 
+            
+  top: 1rem;
+  left: 1rem;
+  font-size: 2.5rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1001;
+  color: var(--accent);
+  transition: all 0.3s ease;
+        }
+/* تحسينات للجوال */
+@media (max-width: 480px) {
+  .close-btn {
+    font-size: 3rem;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+    padding-top: 3rem;
+  }
+}
+
+/* تأثيرات عند التمرير */
+.close-btn:hover {
+  transform: rotate(90deg) scale(1.1);
+  color: var(--primary);
+}
+.close-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  background: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.close-btn:hover::after {
+  opacity: 1;
+}
+.modal-header {
+  position: relative;
+  z-index: 1000;
+}
+@media (hover: none) {
+  .close-btn:hover {
+    transform: none;
+  }
+  .close-btn:hover::after {
+    opacity: 0;
+  }
+}
         .close-btn:hover {
             transform: rotate(90deg);
         }
