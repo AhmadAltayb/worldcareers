@@ -1079,7 +1079,35 @@
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
+/* أنماط أزرار التبديل بين المهن والتخصصات */
+#jobs .filter-item {
+    background: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary);
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    font-weight: 500;
+    color: var(--primary);
+    
+}
 
+#jobs .filter-item.active {
+    background: var(--primary);
+    color: white;
+}
+
+#jobs .filter-item:hover {
+    background: rgba(10, 132, 255, 0.1);
+}
+
+#jobs .filter-item.active:hover {
+    background: var(--primary);
+    opacity: 0.9;
+}
 .compare-detail-card h4 {
     color: var(--primary);
     margin-bottom: 1rem;
@@ -1497,14 +1525,7 @@
         <section id="jobs">
             <div class="filter-container">
                 <div class="filter-box">
-                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
-                        <button id="showProfessionsBtn" class="filter-item active" onclick="showProfessionsView()">
-                            عرض المهن <i class="fas fa-briefcase"></i>
-                        </button>
-                        <button id="showMajorsBtn" class="filter-item" onclick="showMajorsView()">
-                            عرض التخصصات <i class="fas fa-graduation-cap"></i>
-                        </button>
-                    </div>
+                    
                     
                     <h3 class="filter-title">Filter by Job Field:</h3>
                     <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
@@ -1529,7 +1550,17 @@
                     </label>
                 </div>
             </div>
-            
+            <!-- في قسم Jobs and Careers -->
+            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+            <center>
+                <button id="showProfessionsBtn" class="filter-item active" onclick="showProfessionsView()">
+                    عرض المهن <i class="fas fa-briefcase"></i>
+                </button>
+                <button id="showMajorsBtn" class="filter-item" onclick="showMajorsView()">
+                    عرض التخصصات <i class="fas fa-graduation-cap"></i>
+                </button>
+            </center>
+            </div>
     <!-- قسم نتائج البحث الرئيسية -->
             <div class="search-results-section" id="mainSearchResults">
                 <h3 class="search-results-title">
@@ -2450,6 +2481,7 @@
             // عرض النتائج المصفاة
             renderBestJobs(filteredJobs);
         }
+        // دالة لعرض المهن
         // دالة لعرض المهن
         function showProfessionsView() {
             document.getElementById('showProfessionsBtn').classList.add('active');
